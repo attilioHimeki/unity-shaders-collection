@@ -1,6 +1,7 @@
 *.csproj
 *.DS_Store
 *.sln
+*.meta
 
 Assets/SampleScenes
 Assets/Scenes
@@ -10,3 +11,4 @@ Temp
 ProjectSettings
 obj
 Packages
+.vscode
