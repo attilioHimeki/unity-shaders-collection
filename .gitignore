@@ -1,0 +1,12 @@
+*.csproj
+*.DS_Store
+*.sln
+
+Assets/SampleScenes
+Assets/Scenes
+Assets/Standard Assets
+Library
+Temp
+ProjectSettings
+obj
+Packages
