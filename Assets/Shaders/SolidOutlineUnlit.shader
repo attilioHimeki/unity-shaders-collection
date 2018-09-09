@@ -48,10 +48,11 @@
 			{
 				v2f o;
 
-				float3 normal= normalize(v.vertex.xyz)*_OutlineThickness;
+				float3 normal = normalize(v.vertex.xyz) * _OutlineThickness;
 				v.vertex.xyz += normal;
+
 				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				o.uv = float2(0,0);
 				return o;
 			}
 			
