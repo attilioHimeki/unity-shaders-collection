@@ -1,9 +1,9 @@
-﻿Shader "HimekiCollection/SeeThroughWithTransparencyUnlit" 
+﻿Shader "HimekiCollection/Unlit/SeeThroughWithTransparencyUnlit" 
 {
     Properties 
 	{
         _MainTex ("Base (RGB)", 2D) = "white" {}
-        _SeeThroughColor ("See Through Color", Color) = (0,0,1,1)
+        _SeeThroughColor ("See Through Color", Color) = (1, 0, 0, 0.8)
     }
 
 	CGINCLUDE
