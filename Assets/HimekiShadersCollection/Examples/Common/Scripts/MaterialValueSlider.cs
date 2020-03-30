@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class MaterialValueSlider : MonoBehaviour
 {
 	public string propertyName;
+	public float minValue = 0f;
 	public float maxValue = 1f;
 	public Text propertyNameText;
     public Slider valueSlider;
@@ -14,6 +15,7 @@ public class MaterialValueSlider : MonoBehaviour
     {
 		propertyNameText.text = propertyName;
 
+		valueSlider.minValue = minValue;
 		valueSlider.maxValue = maxValue;
         valueSlider.value = material.GetFloat(propertyName);
         valueText.text = valueSlider.value.ToString();
