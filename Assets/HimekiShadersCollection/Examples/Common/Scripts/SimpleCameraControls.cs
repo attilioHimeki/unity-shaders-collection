@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SimpleCameraControls : MonoBehaviour
 {
     public float cameraSpeed = 10f;
     public float mouseSensitivity = 0.15f;
-	
+
     private Vector3 lastDragPosition;
     private bool draggingMouse = false;
 
@@ -23,28 +24,32 @@ public class SimpleCameraControls : MonoBehaviour
 
     private void UpdateMouseDrag()
     {
-        var isMousePressed = Input.GetMouseButton(0);
+		var isInteractingWithUI = EventSystem.current.currentSelectedGameObject != null;
+		if(!isInteractingWithUI)
+		{
+			var isMousePressed = Input.GetMouseButton(0);
 
-        if (!draggingMouse && isMousePressed)
-        {
-            lastDragPosition = Input.mousePosition;
-            draggingMouse = true;
-        }
-        else
-        {
-            if (isMousePressed)
-            {
-                var mouseMovement = (Input.mousePosition - lastDragPosition) * mouseSensitivity;
-                var rotationAngles = new Vector3(-mouseMovement.y, mouseMovement.x, 0f);
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x + rotationAngles.x, transform.eulerAngles.y + rotationAngles.y, 0f);
+			if (!draggingMouse && isMousePressed)
+			{
+				lastDragPosition = Input.mousePosition;
+				draggingMouse = true;
+			}
+			else
+			{
+				if (isMousePressed)
+				{
+					var mouseMovement = (Input.mousePosition - lastDragPosition) * mouseSensitivity;
+					var rotationAngles = new Vector3(-mouseMovement.y, mouseMovement.x, 0f);
+					transform.eulerAngles = new Vector3(transform.eulerAngles.x + rotationAngles.x, transform.eulerAngles.y + rotationAngles.y, 0f);
 
-                lastDragPosition = Input.mousePosition;
-            }
-            else
-            {
-                draggingMouse = false;
-            }
-        }
+					lastDragPosition = Input.mousePosition;
+				}
+				else
+				{
+					draggingMouse = false;
+				}
+			}
+		}
     }
 
 }
