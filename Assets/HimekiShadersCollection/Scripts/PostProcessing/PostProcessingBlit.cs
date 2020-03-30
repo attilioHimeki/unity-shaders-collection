@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 
-[ExecuteInEditMode]
-public class PostProcessingBlit : MonoBehaviour 
+namespace Himeki.Shaders
 {
-
-	public Material material;
-
-    void OnRenderImage(RenderTexture src, RenderTexture dest)
+    [ExecuteInEditMode]
+    public class PostProcessingBlit : MonoBehaviour
     {
-			if(material != null)
-			{
-				Graphics.Blit(src, dest, material);
-			}
-			else
-			{
-				Graphics.Blit(src, dest);
-			}
+
+        public Material material;
+
+        void OnRenderImage(RenderTexture src, RenderTexture dest)
+        {
+            if (material != null)
+            {
+                Graphics.Blit(src, dest, material);
+            }
+            else
+            {
+                Graphics.Blit(src, dest);
+            }
+        }
     }
 }
