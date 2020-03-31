@@ -23,7 +23,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Intensity: 1.6107143
+    - _Intensity: 3.5947824
     - _OutlineThickness: 0.1
     m_Colors:
     - _OutlineColor: {r: 1, g: 0, b: 0, a: 1}
